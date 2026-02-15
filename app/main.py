@@ -836,7 +836,7 @@ def main():
                 st.session_state.result_df = unify_projects_in_df(st.session_state.result_df, project_col="project")
                 
                 # Generar Resumen
-                high_prio = st.session_state.result_df[st.session_state.result_df["priority"] == "High"].sort_values("score", ascending=False).head(10).to_dict("records")
+                high_prio = st.session_state.result_df[st.session_state.result_df["priority"] == "High"].sort_values("score", ascending=False).to_dict("records")
                 st.session_state.summary_text = llm_overall_summary(client, high_prio, len(st.session_state.result_df), range_str,lang=lang)
 
     
